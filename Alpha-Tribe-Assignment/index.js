@@ -3,11 +3,19 @@ const connectDb = require('./config/db');
 const app = express();
 require('dotenv').config(); 
 const PORT = process.env.PORT || 3000; 
-const userRoutes = require('./routes/userRoutes')
+const userRoutes = require('./routes/userRoutes');
+const post = require('./routes/postRoutes');
+const cookieParser = require('cookie-parser');
+const commentPost = require('./routes/commentRoutes');
+const likePost = require('./routes/likeRoutes');
 
 app.use(express.json());
+app.use(cookieParser())
 
-app.use('/api/user', userRoutes)
+app.use('/api/user', userRoutes);
+app.use('/api/posts', post);
+app.use('/api/comments' , commentPost);
+app.use('/api/like', likePost);
 
 
 app.get("/", (req, res) => {

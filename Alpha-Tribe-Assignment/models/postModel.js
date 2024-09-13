@@ -6,6 +6,7 @@ const postSchema = new mongoose.Schema({
   description: { type: String, required: true },
   tags: [String],
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  createdAt: {type : Date , default:Date.now()},
   likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 },{versionKey:false});
 
