@@ -5,10 +5,6 @@ const PostModel = require('../models/postModel');
 const commentPost = express.Router();
 
 
-commentPost.get('/get', (req, res) => {
-    res.send('Welcome to the comment section');
-});
-
 
 commentPost.post("/:postId", authMiddleware, async (req, res) => {
     try {

@@ -84,7 +84,7 @@ post.delete('/:postId', authMiddleware, async (req, res) => {
             return res.status(401).json({ msg: 'Not Authorized' });
         }
 
-        // Delete the post
+        
         await post.deleteOne();
 
         res.status(200).json({ msg: 'Post deleted successfully' });
